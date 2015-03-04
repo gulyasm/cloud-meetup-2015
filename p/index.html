@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>Shower Presentation Engine</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=792, user-scalable=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<link rel="stylesheet" href="shower/themes/ribbon/styles/screen.css">
+</head>
+<body class="list">
+	<header class="caption">
+		<h1>Terraform</h1>
+		<p>Mate Gulyas, Dmlab, enbrite.ly</p>
+	</header>
+	<section class="slide cover" id="Cover">
+        <div>
+            <h2>Terraform</h2>
+            <p>Gulyas Mate <br>
+            </p>
+            <img src="pictures/cover.jpg" alt="">
+            <style>
+            #Cover img {
+                max-width: 100%;
+                max-height: 100%;
+            }
+
+            #Cover h2 {
+                color: white;
+                background: black;
+                opacity: 0.9;
+                padding: 10px;
+            }
+            #Cover p {
+                color: white;
+                opacity: 0.5;
+                padding: 3px;
+                right-margin: 0px;
+            }
+            </style>
+        </div>
+    </section>
+  
+    <!--
+        What are we?
+        What do we do?
+        Why did we need?
+    -->
+    <section class="slide" id="">
+        <div>
+            <h2>What did we need?</h2>
+            <b>Dmlab</b> - <a href="http://dmlab.hu">dmlab.hu</a>
+            <p>Innovative data analytics company, incubates ideas and products. </p>
+            <b>enbrite.ly</b> - <a href="http://enbrite.ly">enbrite.ly</a>
+            <p>Fraud detection in online advertising. Bot or not? </p>
+            <b><i>We needed to automate the creation, modification and destruction of our cloud infrastructure.</b></i>
+        </div>
+    </section>
+   
+    <!-- 
+        What did we test before choosing it?
+        Why did we choose terraform?
+    -->
+    <section class="slide" id="">
+        <div>
+            <h2>Why did we choose Terraform?</h2>
+            <b>Similar tools</b>
+            <ul>
+                <li>Bash script</li>
+                <li>Python script with boto, etc...</li>
+                <li>Ansible</li>
+                <li>Chef</li>
+                <li>Cloudformation</li>
+            </ul>
+        </div>
+    </section>
+    
+    <!-- 
+        What syntax does it use?
+        What is a provider?
+        Basic EC2 instance example.
+    -->
+    <section class="slide" id="">
+        <div>
+            <h2>Terraform</h2>
+            <p>Terraform is a tool for building, changing, and versioning infrastructure safely and efficiently.</p>
+            <ul>
+                <li>Terraform configuration format</li>
+                <li>Resources</li>
+                <li>Service provider</li>
+                <li>Variables</li>
+                <li>Modules</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="slide" id="">
+        <div>
+            <h2>Service providers</h2>
+            <ul>
+                <li>AWS</li>
+                <li>CloudStack</li>
+                <li>Consul</li>
+                <li>DigitalOcean</li>
+                <li>Google Cloud</li>
+                <li>Heroku</li>
+                <li>MailGun</li>
+                <li>Atlas</li>
+            </ul>
+        </div>
+    </section>
+
+
+    <section class="slide" id="">
+        <div>
+            <h2>Modules</h2>
+            Reusable components, managed as a group.
+            <pre>
+                <code>
+module "consul" {
+    source = "github.com/hashicorp/consul/terraform/aws"
+    servers = 3
+}
+                </code>
+            </pre>
+        </div>
+    </section>
+    
+    <!--
+        What is variables, how to use them?
+    -->
+    <section class="slide" id="">
+        <div>
+            <h2>Variables</h2>
+            <p> Variables are a great way to inject, separate or export data from terraform. </p>
+            <b> Output </b> <br>
+            IP, DNS name, etc... <br>
+            <b> Input </b><br>
+            Credentials, number of instances, type of resource, etc...
+        </div>
+    </section>
+    
+
+    <section class="slide shout" id="SlideArchitektura1">
+        <div>
+            <h2>Demo</h2>
+            <blockquote>What can go wrong?</blockquote>
+        </div>
+    </section>
+   
+        <!-- 
+        How do we use it?
+    -->
+    <section class="slide" id="">
+        <div>
+            <h2>How do we use it?</h2>
+            <ol>
+                <li>Create the image</li>
+                <li>Jenkins creates the staging infrastructure with Terraform</li>
+                <li>Integration tests</li>
+                <li>Manual tests if needed</li>
+                <li>Image stamped PRODUCTION-OK</li>
+                <li><i>Developer deploys it to production</i></li>
+            </ol>
+        </div>
+    </section>
+    
+    <section class="slide">
+        <div>
+            <h2>Thank you!</h2> Contact me!
+            <p>
+                Twitter: <a href="http://twitter.com/gulyasm">@gulyasm</a>
+                <br>
+                Email: <a href="mailto:gulyasm@enbrite.ly">gulyasm@enbrite.ly</a>
+                <br>
+            </p>
+        </div>
+    
+	<script src="shower/shower.min.js"></script>
+</body>
+</html>
