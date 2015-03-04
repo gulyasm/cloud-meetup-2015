@@ -19,21 +19,8 @@ resource "aws_instance" "cloudmeetup-prod-webserver" {
         Name = "cloudmeetup-prod-webserver"
     }
     key_name = "gulyasm_gulyasm"
+    count = 4
 }
-resource "aws_instance" "cloudmeetup-prod-webserver2" {
-    ami = "ami-e4356d8c"
-    instance_type = "t2.micro"
-    availability_zone = "us-east-1a"
-    security_groups = ["cloudmeetup-website"]
-    tags = {
-        Env = "prod"
-        Role = "webserver"
-        Project = "cloudmeetup"
-        Name = "cloudmeetup-prod-webserver"
-    }
-    key_name = "gulyasm_gulyasm"
-}
-
 resource "aws_elb" "cloudmeetup-prod-elb" {
     name = "cloudmeetup-prod-elb"
     availability_zones = ["us-east-1a"]
@@ -51,7 +38,7 @@ resource "aws_elb" "cloudmeetup-prod-elb" {
         target = "HTTP:80/index.html"
         interval = 30
     }
-    instances = ["${aws_instance.cloudmeetup-prod-webserver.id}", "${aws_instance.cloudmeetup-prod-webserver2.id}"]
+    instances = ["${aws_instance.cloudmeetup-prod-webserver.*.id}"]
     cross_zone_load_balancing = true
 }
 
